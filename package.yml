@@ -42,6 +42,19 @@ dependencies:
       channel: 'pecl.php.net'
       min: '1.0.0'
 
+tasks:
+  replacements:
+    -
+      path: 'bootstrap.php'
+      type: 'pear-config'
+      from: '@DATA_DIR@'
+      to: 'data_dir'
+    -
+      path: 'bootstrap.php'
+      type: 'package-info'
+      from: '@PACKAGE_NAME@'
+      to: 'name'
+
 packageFileManagerOptions:
   filelistgenerator: 'file'
   baseinstalldir: '/'
@@ -57,5 +70,6 @@ packageFileManagerOptions:
   exceptions:
     'LICENSE': 'doc'
     'README.markdown': 'doc'
+    'SplClassLoader.php': 'data'
+    'bootstrap.php': 'test'
     'phpunit.xml.dist': 'test'
-    'preload.php': 'test'

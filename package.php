@@ -9,16 +9,16 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+require __DIR__ . DIRECTORY_SEPARATOR . 'SplClassLoader.php';
+
 use PEAR\PackageFileBuilder as Builder;
 use PEAR\PackageFileBuilder\ConfigLoader\YamlLoader;
 
 if (__FILE__ === realpath($_SERVER['argv'][0])) {
     set_include_path(__DIR__ . PATH_SEPARATOR . get_include_path());
-    spl_autoload_register(function($className){
-        include preg_replace('/[\\\\_]/',
-                             DIRECTORY_SEPARATOR,
-                             $className) . '.php';
-    });
+    $classLoader = new SplClassLoader();
+    $classLoader->register();
+
     error_reporting(E_ALL & ~(E_STRICT | E_DEPRECATED));
     PEAR::setErrorHandling(PEAR_ERROR_DIE);
     main($_SERVER['argc'], $_SERVER['argv']);
