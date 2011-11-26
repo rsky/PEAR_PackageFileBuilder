@@ -1,2 +1,3 @@
-PEAR_PackageFileBuilder-*.tgz
+*.tgz
+.DS_Store
 phpunit.xml
