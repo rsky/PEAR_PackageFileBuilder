@@ -26,26 +26,6 @@ class PackageFileBuilder
     protected $pfm;
 
     /**
-     * Builds a package file manager.
-     *
-     * @param ConfigLoader $loader
-     * @param mixed $pkgConfig
-     * @param array $pfmOptions
-     *
-     * @return \PEAR_PackageFileManager2
-     */
-    public static function build(ConfigLoader $loader,
-                                 $pkgConfig,
-                                 array $pfmOptions = array())
-    {
-
-        $builder = new PackageFileBuilder($loader);
-        return $builder
-            ->setup($pkgConfig, $pfmOptions)
-            ->getPakageFileManager();
-    }
-
-    /**
      * Constructor.
      *
      * @param ConfigLoader $loader
@@ -107,7 +87,7 @@ class PackageFileBuilder
      *
      * @throws \LogicException
      */
-    public function getPakageFileManager()
+    public function getPackageFileManager()
     {
         if (!($this->pfm instanceof PackageFileManager)) {
             throw new \LogicException('Did not set up!');

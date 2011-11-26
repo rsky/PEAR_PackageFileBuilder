@@ -11,7 +11,7 @@
 
 require __DIR__ . DIRECTORY_SEPARATOR . 'SplClassLoader.php';
 
-use PEAR\PackageFileBuilder as Builder;
+use PEAR\PackageFileBuilder;
 use PEAR\PackageFileBuilder\ConfigLoader\YamlLoader;
 
 if (__FILE__ === realpath($_SERVER['argv'][0])) {
@@ -33,15 +33,19 @@ function main($argc, $argv)
     $loader = new YamlLoader();
     $pkgConfig = './package.yml';
     $pfmOptions = array('packagedirectory' => '.');
-    $pkg = Builder::build($loader, $pkgConfig, $pfmOptions);
 
-    $pkg->generateContents();
+    $builder = new PackageFileBuilder($loader);
+    $builder->setup($pkgConfig, $pfmOptions);
+    $pfm = $builder->getPackageFileManager();
+
+    $pfm->generateContents();
+
     if (('make' === $command) || ('archive' === $command)) {
-        $pkg->writePackageFile();
+        $pfm->writePackageFile();
         if ('archive' === $command) {
             passthru('pear package package.xml');
         }
     } else {
-        $pkg->debugPackageFile();
+        $pfm->debugPackageFile();
     }
 }
