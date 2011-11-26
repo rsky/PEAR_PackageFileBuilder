@@ -1,0 +1,4 @@
+package:
+  type: 'php'
+  name: 'PEAR_PackageFileBuilder'
+  license: 'MIT License'
