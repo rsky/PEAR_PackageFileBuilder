@@ -1,0 +1,61 @@
+package:
+  type: 'php'
+  name: 'PEAR_PackageFileBuilder'
+  channel: '__uri'
+  summary: 'Utility for PEAR_PackageFileManager2.'
+  description: 'Help to make the PEAR package with using the configuration file.'
+  license:
+    name: 'MIT License'
+    uri: 'http://www.opensource.org/licenses/mit-license.php'
+
+state:
+  version: '0.1.0'
+  stability: 'alpha'
+  apiVersion: '0.1.0'
+  apiStability: 'alpha'
+  notes: 'Initial release'
+
+maintainers:
+  -
+    role: 'lead'
+    handle: 'rsk'
+    name: 'Ryusuke SEKIYAMA'
+    email: 'rsky0711@gmail.com'
+
+dependencies:
+  php: '5.3.0'
+  pearinstaller: '1.4.0'
+  packages:
+    -
+      type: 'optional'
+      name: 'Yaml'
+      channel: 'pear.symfony.com'
+      min: '2.0.0'
+    -
+      type: 'optional'
+      name: 'YAML'
+      channel: 'pear.symfony-project.com'
+      min: '1.0.0'
+    -
+      type: 'optional'
+      name: 'yaml'
+      channel: 'pecl.php.net'
+      min: '1.0.0'
+
+packageFileManagerOptions:
+  filelistgenerator: 'file'
+  baseinstalldir: '/'
+  simpleoutput: true
+  dir_roles:
+    'examples': 'doc'
+    'tests': 'test'
+  ignore:
+    - 'package.php'
+    - 'package.xml'
+    - 'package.yml'
+    - '*.tgz'
+  exceptions:
+    'LICENSE': 'doc'
+    'README.markdown': 'doc'
+    'phpunit.xml.dist': 'test'
+    'preload.php': 'test'
