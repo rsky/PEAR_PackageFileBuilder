@@ -54,7 +54,7 @@ abstract class YamlTestCase extends BaseTestCase
                 'license' => 'MIT License',
             ),
         );
-        $source = __DIR__ . '/data/package.yml';
+        $source = __DIR__ . '/data/config.yml';
         return array(
             array($expected, $source),
         );
