@@ -9,11 +9,11 @@ package:
     uri: 'http://www.opensource.org/licenses/mit-license.php'
 
 state:
-  version: '0.1.0'
+  version: '0.1.1'
   stability: 'alpha'
   apiVersion: '0.1.0'
   apiStability: 'alpha'
-  notes: 'Initial release'
+  notes: 'Fixed package dependencies.'
 
 maintainers:
   -
@@ -24,8 +24,13 @@ maintainers:
 
 dependencies:
   php: '5.3.0'
-  pearinstaller: '1.4.0'
+  pearinstaller: '1.8.0'
   packages:
+    -
+      type: 'required'
+      name: 'PEAR_PackageFileManager2'
+      channel: 'pear.php.net'
+      min: '1.0.0'
     -
       type: 'optional'
       name: 'Yaml'
