@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>PEAR_PackageFileBuilder</name>
+ <channel>__uri</channel>
+ <summary>Utility for PEAR_PackageFileManager2.</summary>
+ <description>Help to make PEAR package with using configuration file.</description>
+ <lead>
+  <name>Ryusuke SEKIYAMA</name>
+  <user>rsk</user>
+  <email>rsky0711@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2011-11-27</date>
+ <time>09:25:06</time>
+ <version>
+  <release>0.1.1</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+ <notes>
+Fixed package dependencies.
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="PEAR">
+    <dir name="PackageFileBuilder">
+     <dir name="ConfigLoader">
+      <file name="LoaderInterface.php" role="php" />
+      <file name="Sf2YamlLoader.php" role="php" />
+      <file name="SfYamlLoader.php" role="php" />
+      <file name="YamlLoader.php" role="php" />
+     </dir> <!-- /PEAR/PackageFileBuilder/ConfigLoader -->
+    </dir> <!-- /PEAR/PackageFileBuilder -->
+    <file name="PackageFileBuilder.php" role="php" />
+   </dir> <!-- /PEAR -->
+   <dir name="tests">
+    <dir name="ConfigLoader">
+     <dir name="data">
+      <file name="config.yml" role="test" />
+     </dir> <!-- /tests/ConfigLoader/data -->
+     <file name="BaseTestCase.php" role="test" />
+     <file name="Sf2YamlLoaderTest.php" role="test" />
+     <file name="SfYamlLoaderTest.php" role="test" />
+     <file name="YamlLoaderTest.php" role="test" />
+     <file name="YamlTestCase.php" role="test" />
+    </dir> <!-- /tests/ConfigLoader -->
+   </dir> <!-- /tests -->
+   <file name="bootstrap.php" role="test">
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PACKAGE_NAME@" to="name" type="package-info" />
+   </file>
+   <file name="LICENSE" role="doc" />
+   <file name="phpunit.xml.dist" role="test" />
+   <file name="README.md" role="doc" />
+   <file name="SplClassLoader.php" role="data" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.8.0</min>
+   </pearinstaller>
+   <package>
+    <name>PEAR_PackageFileManager2</name>
+    <channel>pear.php.net</channel>
+    <min>1.0.0</min>
+   </package>
+  </required>
+  <optional>
+   <package>
+    <name>Yaml</name>
+    <channel>pear.symfony.com</channel>
+    <min>2.0.0</min>
+   </package>
+   <package>
+    <name>YAML</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.0.0</min>
+   </package>
+   <package>
+    <name>yaml</name>
+    <channel>pecl.php.net</channel>
+    <min>1.0.0</min>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-11-27</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+   <notes>
+Initial release
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-11-27</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+   <notes>
+Fixed package dependencies.
+   </notes>
+  </release>
+ </changelog>
+</package>
